@@ -1,0 +1,247 @@
+<!-- 
+Copyright 2023 Gurveer Sohal
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ugly page</title>
+    <style>
+        * {
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+        }
+
+        /* I got the idea for the color scheme with the text from canva.com*/
+        /* https://www.canva.com/learn/website-color-schemes/ */
+        html {
+            background-color: turquoise;
+            color: #dfdce3;
+        }
+
+        .name {
+            text-align: center;
+            font-size: 50pt;
+        }
+        .content {
+            flex-basis: 95%;
+        }
+
+
+        /* I used this to learn how to stick the sidebar on the side */
+        /* https://stackoverflow.com/questions/29036231/how-can-i-have-a-position-fixed-behaviour-for-a-flexbox-sized-element */
+        .sidebar {
+            flex-basis: 20%;
+            align-self: flex-start;
+            padding-top: 50pt;
+            top: 0; /* this is required for "sticky" to work */
+            color: red;
+        }
+
+        .split {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        .about {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: justify;
+        }
+
+        .workexp {
+            text-align: justify;
+            background-color: black;
+        }
+
+        /* This stock photo is from https://www.dreamstime.com */
+        .courses {
+            text-align: justify;
+            background-image: url("https://thumbs.dreamstime.com/b/vintage-muscle-car-neon-light-black-background-symbolizes-movement-sports-lifestyle-new-technologies-speed-136240268.jpg");
+        }
+
+
+        .skills {
+            text-align: right;
+            background: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%);
+        }
+
+        h1 {
+            align-self: flex-start;
+            padding-left: 20pt;
+            color: #fc4a1a;
+        }
+
+        button {
+            font-size: 15pt;
+            border-radius: 40%;
+            background-color: yellow;
+            border: 0;
+        }
+
+        img {
+            border-radius: 500pt;
+            width: 200pt;
+            height: 200pt;
+        }
+
+        .content p {
+            padding-left: 50pt;
+        }
+
+        .sectionheader {
+            padding-left: 35pt;
+            background-color: yellow;
+            color: green;
+            text-align: right;
+        }
+
+        .buttoncontainer {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+    </style>
+
+    <!-- I used this to learn how to give alerts on clicking a button -->
+    <!--  https://www.codecademy.com/forum_questions/512d28a06918338f2300e9ea -->
+
+    <script>
+        function clickAlert(section) {
+            alert("Now isn't this popping and edgy!");
+            location.href = "#"+section;
+        }
+    </script>
+</head>
+<body>
+    <div class="split">
+        <div class="sidebar">
+            <br>
+            <b>TLDR</b>
+
+            <p>Third Year Computing Science UAlberta</p>
+
+            <p>C++, Python, Javascript, Django, React</p>
+
+            <p>Full Stack Development</p>
+
+            <b>Experience</b>
+            <p>Teaching Assistant</p>
+            <p>Research Assistant</p>
+            <p>Front-end Developer</p>
+        </div>
+
+        <div class="content">
+            <h1 class="name">Gurveer Singh Sohal</h1>
+
+            <div class="buttoncontainer">
+                <button onclick="clickAlert('about')">About</button>
+                <button onclick="clickAlert('workexp')">Experience</button>
+                <button onclick="clickAlert('skills')">Skills</button>
+                <button onclick="clickAlert('courses')">Coursework</button>
+            </div>
+
+            <div class="about" id="about">
+                <h1> About </h1>
+                <p>
+                    I'm a Computing Science student at the University of Alberta. I'm in my third year of my undergraduate degree. I enjoy writing code. I also enjoy debugging others code.
+                    I'm part of the Competitive Programming club and the Math club at UAlberta. I also enjoy playing various sports in my free time.
+                </p>
+                <img src="./GurveerSinghSohal.jpg" alt="this is my picture"/>
+            </div>
+
+            <div class="workexp" class="id">
+                <h1> Work Experience </h1>
+
+                <b class="sectionheader"> Teaching Assistant, University of Alberta</b>
+
+                <p class="workdescription">
+                    I am a Teaching Assistant for the Honors Introductory Computing Science courses at the University of Alberta.
+                    I help students understand and debug C++ and Python code during office hours, and help them understand course concepts.
+                    I am also part of the team that marks assignments.
+                </p>
+
+                <b class="sectionheader"> Research Assistant, University of Alberta</b>
+
+                <p class="workdescription">
+                    I worked under <a href="https://gwtokarsky.github.io">Professor George Tokarsky</a> on unilluminable rooms. 
+                    I created desktop applications to visualize the path of light in polygonal shaped rooms. 
+                    The user can create a valid polygonal room of their choice and see the animated path of light as it avoids the unilluminable points. 
+                    I also worked on several <a href="https://www.youtube.com/watch?v=EBgR1FKKRkc">videos</a> to demonstrate the applications, which got over 10,000 views combined.
+                </p>
+
+                <b class="sectionheader"> Front-end Developer, UofA Blueprint</b>
+
+                <p class="workdescription">
+                    UofA Blueprint makes web and mobile apps for non-profit organizations.
+                    I worked in a team of developers, designers and a project manager.
+                    I developed their website, and an app for the International Students Association at the University of Alberta along with other developers.
+                </p>
+
+            </div>
+
+            <div class="skills" id="skills">
+                <h1>Skills</h1>
+                <ul>
+                    <li>Programming languages I know: C++, Python, Javascript, Java, RISC-V</li>
+                    <li>Frameworks I know: React, Django</li>
+                    <li>I have experience with version control using Git and GitHub.</li>
+                    <li>I have experience working in a team of developers and doing sprint planning.</li>
+                    <li>I can solve problems and pick up new things on my own using the internet.</li>
+                </ul>
+            </div>
+
+            <div class="courses" id="courses">
+                <h1>Coursework</h1>
+
+                <b class="sectionheader">CMPUT 415</b>
+
+                <p class="coursetext">
+                    This is the most intense course I have ever taken. From the start of the semester I was constantly learning, and I enjoyed it a lot.
+                    I gained experience writing a lot of C++ code. I also gained experience reviewing other people's code and working in a team using sprint planning.
+                    I gained an understanding of how compilers work, and implemented a front-end for a language called Gazprea to LLVM IR. 
+                    The basic process is as follows:
+                    <ul>
+                        <li>Parse the code in a given language to generate the parse tree (or abstract syntax tree). Any syntax errors can be caught here</li>
+                        <li>Define the scopes and symbols for the variables in the program. Any errors related to scoping can be caught here.</li>
+                        <li>Define the type of each symbol defined in the scope tree. Any errors related to misusing types can be caught here.</li>
+                        <li>Check for any semantic errors.</li>
+                        <li>Go through the abstract syntax tree and do code emission. In our case we generated LLVM IR.</li>
+                    </ul>
+
+                    From there on, the LLVM IR can be converted into any assembly level backend. There are also compiler optimizations that can be performed here,
+                    but I only learnt about the theory behind it, we didn't implement it.
+                </p>
+
+
+                <b class="sectionheader">CMPUT 404</b>
+
+                <p class="coursetext">
+                    I'm currently taking this course. I'm learning a lot about the web, and software development. I'm getting experience working with React, Django
+                    and Javascript. I'm also getting experience doing code reviews and ticket management.
+                </p>
+
+                <b class="sectionheader">CMPUT 403</b>  
+                
+                <p class="coursetext">
+                    This was one of my favourite courses. I learnt a lot of algorithms for solving different problems, like dynamic programming,
+                    graph theory, number theory and linear programming.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
